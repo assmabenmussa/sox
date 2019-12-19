@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row align-items-center card w-100 mx-auto text-right" style="width: 48rem; background-color:#f5f4f4; vertical-align: middle;">
+    <div class="card-body">
+        <h1 class="card-title"><img src="../../assets/connect_s.jpg" alt="Connect logo">إستبيان رضا موظفين</h1>
+        <p class="card-text">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+        أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
+        أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
+        أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
+        نيولا باراياتيور.</p>
+
+        <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm" action="./form.py">
+        <div class="form-group">
+            <label class="label" for="opinion">الرأي لن يفصح عن هويتك*</label>
+            <textarea type="text" 
+                      class="form-control mb-4 form-group" 
+                      ngModel 
+                      name="feedback"
+                      #feedback="ngModel"
+                      rows = "10"
+                      required></textarea>
+        </div>  
+
+        <div class="text-center">
+        <button [disabled]="!opForm.form.valid" class="mx-auto text-center btn btn-danger">إرسال</button>
+        </div>
+        </form>
+        </div>
+    </div>   
+</div>  
+   
+   
