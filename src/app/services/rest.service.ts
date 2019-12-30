@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Feedback } from '../feedback';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class RestService {
 
   public postFeedback(feedback: Feedback){
     console.log("Service exectuting", feedback)
-    return this.http.post(`${this.url}/email`, feedback);
+    return this.http.get(`${this.url}/email?feedback=${feedback.feedback}`);
   }
   // public getF(){
   //   return this.http.get<Feedback>(`${this.url}/send`)

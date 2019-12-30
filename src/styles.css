@@ -3,3 +3,11 @@ body {
     font-family: 'Cairo', sans-serif;
     direction: rtl;
 }
+html, body {
+    height: 100%;
+}
+
+.fill-height{
+    min-height: 100%;
+    height: 100%;
+}

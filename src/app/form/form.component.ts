@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
-import { Feedback } from '../feedback';
 
 @Component({
   selector: 'app-form',
@@ -8,19 +7,29 @@ import { Feedback } from '../feedback';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  errorMsg: any;
+  submitted: boolean;
+  loading: boolean;
+
   constructor(private restService: RestService) { }
 
-  submitted: boolean;
-  feedbackOut: Feedback[] = []
-    
-  
+
   onSubmit(data){
-    this.submitted = true
+    this.loading = true
     console.log("Form value", data.value)
     this.restService.postFeedback(data.value)
       .subscribe(res => {
+        this.loading = false;
         console.log("Submitted form response: ", res)
+        JSON.stringify(res)
+      },
+      error => {
+        this.loading = false;
+        this.errorMsg = true;
+        this.errorMsg = error["statusText"];
+        console.log("Leads component error", error["statusText"]);
       })
+      data.reset()
   }
   
   // getAll(){

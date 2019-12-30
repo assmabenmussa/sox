@@ -1,31 +1,37 @@
-<div class="container">
-  <div class="row align-items-center card w-100 mx-auto text-right" style="width: 48rem; background-color:#f5f4f4; vertical-align: middle;">
-    <div class="card-body">
-        <h1 class="card-title"><img src="../../assets/connect_s.jpg" alt="Connect logo">إستبيان رضا موظفين</h1>
-        <p class="card-text">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-        أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-        أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-        أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-        نيولا باراياتيور.</p>
+<div class="container d-flex h-100 w-50">
+  <div  class="p-5 w-100 justify-content-center align-self-center mx-auto card bg-white">
+    <div class="align-self-center card-body"> 
+      <div class="text-center">
+        <img class="text-center" height="100px" width="100px" src="../../assets/connect_edited.jpg" alt="Connect logo">
+      </div>
+      <h1 class="card-title text-center">إستقبال المقترحات و الشكاوي</h1>
+      <p class="card-text text-center">لمساعدتنا على توفير بيئة عمل أفضل و أكثر انتاجية</p>
+      
+      <div *ngIf="errorMsg" class="w-50 mx-auto alert alert-danger mt-3 mb-1 text-center">
+        {{ errorMsg }}
+      </div>
 
-        <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm" action="./form.py">
-        <div class="form-group">
+      <div *ngIf="loading" class="text-center">
+        <div class="spinner-border text-danger h5"></div>
+      </div>
+
+      <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm" action="./form.py">
+        <div class="text-right form-group">
             <label class="label" for="opinion">الرأي لن يفصح عن هويتك*</label>
             <textarea type="text" 
                       class="form-control mb-4 form-group" 
                       ngModel 
                       name="feedback"
                       #feedback="ngModel"
-                      rows = "10"
+                      rows = "6"
                       required></textarea>
         </div>  
-
         <div class="text-center">
-        <button [disabled]="!opForm.form.valid" class="mx-auto text-center btn btn-danger">إرسال</button>
+          <button [disabled]="!opForm.form.valid" class="mx-auto text-center btn btn-danger">إرسال</button>
         </div>
-        </form>
-        </div>
-    </div>   
+      </form>
+    </div> 
+  </div>
 </div>  
    
    
