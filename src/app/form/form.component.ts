@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
-
+import { Feedback } from '../feedback'
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -10,7 +10,9 @@ export class FormComponent implements OnInit {
   errorMsg: any;
   submitted: boolean;
   loading: boolean;
-
+  deps: any = ['IT', 'Core Network', 'Maintenance', 'Access Network', 'Human Resources', 
+               'Finance', 'Customer Care', 'Administration', 'Marketing'];
+  feedback: Feedback;
   constructor(private restService: RestService) { }
 
 
@@ -26,8 +28,8 @@ export class FormComponent implements OnInit {
       error => {
         this.loading = false;
         this.errorMsg = true;
-        this.errorMsg = error["statusText"];
-        console.log("Leads component error", error["statusText"]);
+        this.errorMsg = error["errorMessage"];
+        console.log("Leads component error", error["errorMessage"]);
       })
       data.reset()
   }

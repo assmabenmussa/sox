@@ -13,7 +13,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
         return next.handle(request)
             .pipe(
-                retry(1),
                 catchError((error: HttpErrorResponse) => {
                     switch(error.status){
                         case 0:
@@ -44,11 +43,10 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                                 this.errorMessage = "Client-side error";
                             } else if (error.status >= 500 && error.status <= 599 ) {
                                 this.errorMessage = "Server-side error";
-                            } else {
-                                this.errorMessage = "Undefined Error";
-                            }
+                            } 
                             break;
                         }
+                        console.log("Our error message: ", this.errorMessage);
                         return throwError({errorStatus: error.status, errorMessage: this.errorMessage});
                     })
                 )

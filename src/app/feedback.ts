@@ -1,3 +1,4 @@
 export interface Feedback{
-    feedback: string;
+    feedback: any;
+    dep: any;
 }

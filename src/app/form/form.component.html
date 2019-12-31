@@ -14,10 +14,9 @@
       <div *ngIf="loading" class="text-center">
         <div class="spinner-border text-danger h5"></div>
       </div>
-
       <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm" action="./form.py">
         <div class="text-right form-group">
-            <label class="label" for="opinion">الرأي لن يفصح عن هويتك*</label>
+            <label class="label" for="opinion">رأيك لن يفصح عن هويتك*</label>
             <textarea type="text" 
                       class="form-control mb-4 form-group" 
                       ngModel 
@@ -26,6 +25,16 @@
                       rows = "6"
                       required></textarea>
         </div>  
+        <div class="form-group text-right">
+          <label>القسم</label>
+          <select class="form-control"
+                  name="dep"
+                  #dep="ngModel"
+                  ngModel
+                  required>
+            <option *ngFor="let dep of deps" [ngValue]="dep">{{dep}}</option>
+          </select>
+        </div>
         <div class="text-center">
           <button [disabled]="!opForm.form.valid" class="mx-auto text-center btn btn-danger">إرسال</button>
         </div>

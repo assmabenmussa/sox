@@ -15,7 +15,7 @@ export class RestService {
 
   public postFeedback(feedback: Feedback){
     console.log("Service exectuting", feedback)
-    return this.http.get(`${this.url}/email?feedback=${feedback.feedback}`);
+    return this.http.get(`${this.url}/email?dep=${feedback.dep}&feedback=${feedback.feedback}`);
   }
   // public getF(){
   //   return this.http.get<Feedback>(`${this.url}/send`)
