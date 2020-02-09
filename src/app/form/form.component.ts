@@ -10,8 +10,8 @@ export class FormComponent implements OnInit {
   errorMsg: any;
   submitted: boolean;
   loading: boolean;
-  deps: any = ['IT', 'Core Network', 'Maintenance', 'Access Network', 'Human Resources', 
-               'Finance', 'Customer Care', 'Administration', 'Marketing'];
+  deps: any = ['قسم الـIT', 'قسم الـcore', 'قسم الـMaintenance', 'قسم الـAccess Network', 'الموارد البشرية', 
+               'المالية', 'خدمات المشتركين', 'الادارة', 'التسويق', 'المبيعات', 'علم البيانات', 'أفضل عدم الإفصاح'];
   feedback: Feedback;
   constructor(private restService: RestService) { }
 
