@@ -6,17 +6,33 @@
     height: 100px;
 }
 
-.glass-morphism-card{
-    background: rgba( 255, 255, 255, 0.25 );
+.glass-morphism-card {
+    background: rgb(255 255 255 / 5%);
     box-shadow: 0 8px 32px 0 rgb(0 1 16);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 5px );
+    transition: 1s all;
     color: white;
 }
 
+.glass-morphism-card:focus-within, .glass-morphism-card:hover {
+    background: rgb(255 255 255 / 2%);
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 20px );
+}
 .card, .form-control, .btn {
     border-radius: 2rem;
+    transition: 0.25s all;
 }
+.form-control:focus {
+    border-radius: 1rem;
+}
+
+.alert {
+    border: none;
+    border-radius: 2rem;
+}
+
 @media only screen and (max-width: 992px) {
     .w-50{
         width: 100%!important;
