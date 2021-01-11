@@ -11,13 +11,13 @@ export class RestService {
     
   }
 
-  url = 'https://dry-shelf-17630.herokuapp.com/api';
+  url = 'https://dry-shelf-17630.herokuapp.com/api'; //heroku backend 
+  // url = 'http://127.0.0.1:5000/api';
 
   public postFeedback(feedback: Feedback){
-    console.log("Service exectuting", feedback)
-    return this.http.get(`${this.url}/email?dep=${feedback.dep}&feedback=${feedback.feedback}`);
+    let data = new FormData;
+    data.append("dep", feedback.dep);
+    data.append("feedback", feedback.feedback);
+    return this.http.post(`${this.url}/email`, data);
   }
-  // public getF(){
-  //   return this.http.get<Feedback>(`${this.url}/send`)
-  // }
 }
