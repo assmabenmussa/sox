@@ -1,14 +1,18 @@
 <div class="container d-flex h-100 w-50">
-  <div  class="p-5 w-100 justify-content-center align-self-center mx-auto card bg-white">
+  <div  class="w-100 justify-content-center align-self-center mx-auto card glass-morphism-card">
     <div class="align-self-center card-body"> 
       <div class="text-center">
-        <img class="text-center" height="100px" width="100px" src="../../assets/connect_edited.jpg" alt="Connect logo">
+        <img class="text-center" height="120px" width="120px" src="../../assets/Logo_-01.png" alt="Connect logo">
       </div>
-      <h1 class="card-title text-center">إستقبال المقترحات و الشكاوي</h1>
+      <h2 class="card-title text-center">إستقبال المقترحات و الشكاوي</h2>
       <p class="card-text text-center">لمساعدتنا على توفير بيئة عمل أفضل و أكثر انتاجية</p>
       
       <div *ngIf="errorMsg" class="w-50 mx-auto alert alert-danger mt-3 mb-1 text-center">
         {{ errorMsg }}
+      </div>
+
+      <div *ngIf="successMsg" class="w-50 mx-auto alert alert-success mt-3 mb-1 text-center">
+        {{ successMsg }}
       </div>
 
       <div *ngIf="loading" class="text-center">
