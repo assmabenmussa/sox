@@ -5,8 +5,20 @@
 .height{
     height: 100px;
 }
+
+.glass-morphism-card{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgb(0 1 16);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    color: white;
+}
+
+.card, .form-control, .btn {
+    border-radius: 2rem;
+}
 @media only screen and (max-width: 992px) {
     .w-50{
         width: 100%!important;
     }
-  }
+}
