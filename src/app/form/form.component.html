@@ -1,24 +1,21 @@
 <div class="container d-flex h-100 w-50">
   <div  class="w-100 justify-content-center align-self-center mx-auto card glass-morphism-card">
-    <div class="align-self-center card-body"> 
+    <div class="align-self-center card-body pt-0"> 
       <div class="text-center">
-        <img class="text-center" height="120px" width="120px" src="../../assets/Logo_-01.png" alt="Connect logo">
+        <img class="text-center" height="140px" width="150px" src="../../assets/Logo-0٦.png" alt="Connect logo">
       </div>
       <h2 class="card-title text-center">إستقبال المقترحات و الشكاوي</h2>
       <p class="card-text text-center">لمساعدتنا على توفير بيئة عمل أفضل و أكثر انتاجية</p>
       
-      <div *ngIf="errorMsg" class="w-50 mx-auto alert alert-danger mt-3 mb-1 text-center">
+      <div *ngIf="!successMsg && errorMsg" class="w-50 mx-auto alert alert-danger mt-3 mb-1 text-center">
         {{ errorMsg }}
       </div>
 
-      <div *ngIf="successMsg" class="w-50 mx-auto alert alert-success mt-3 mb-1 text-center">
+      <div *ngIf="!errorMsg && successMsg" class="w-50 mx-auto alert alert-success mt-3 mb-1 text-center">
         {{ successMsg }}
       </div>
 
-      <div *ngIf="loading" class="text-center">
-        <div class="spinner-border text-danger h5"></div>
-      </div>
-      <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm" action="./form.py">
+      <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm">
         <div class="text-right form-group">
             <label class="label" for="opinion">رأيك لن يفصح عن هويتك - في حالة امتناعك عن الافصاح عن قسمك، يرجى إختيار "أفضل عدم الإفصاح"*</label>
             <textarea type="text" 
@@ -40,7 +37,15 @@
           </select>
         </div>
         <div class="text-center">
-          <button [disabled]="!opForm.form.valid" class="mx-auto text-center btn btn-danger">إرسال</button>
+          <button [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
+            
+            <div *ngIf="loading" class="text-center">
+              <div class="spinner-border spinner-border-sm text-light h5"></div>
+            </div>
+            <ng-container *ngIf="!loading">
+              إرسال
+            </ng-container>
+          </button>
         </div>
       </form>
     </div> 
