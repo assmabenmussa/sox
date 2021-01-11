@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { RestService } from './services/rest.service';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpErrorResponse, HttpClient} from '@angular/common/http';
-import { HttpErrorInterceptor } from './services/interceptor';
 
 @NgModule({
   declarations: [
@@ -18,12 +17,7 @@ import { HttpErrorInterceptor } from './services/interceptor';
     HttpClientModule
   ],
   providers: [
-    RestService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorInterceptor,
-      multi: true
-    }
+    RestService
   ],
   bootstrap: [AppComponent]
 })
