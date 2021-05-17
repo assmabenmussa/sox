@@ -23,7 +23,7 @@
                       ngModel 
                       name="feedback"
                       #feedback="ngModel"
-                      rows = "6"
+                      rows = "4"
                       required></textarea>
         </div>  
         <div class="form-group text-right">
@@ -36,6 +36,26 @@
             <option *ngFor="let dep of deps" [ngValue]="dep">{{dep}}</option>
           </select>
         </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <label for="">إستلام رد</label>
+          </div>
+          <div>
+            <label class="switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+        </div>
+        <div class="text-right form-group">
+            <label>بريد إلكتروني أو رقم هاتف</label>
+            <input type="text" 
+                      class="form-control mb-4 form-group" 
+                      ngModel 
+                      name="feedback"
+                      #feedback="ngModel"
+                      required>
+        </div>  
         <div class="text-center">
           <button [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
             
