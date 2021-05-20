@@ -51,10 +51,9 @@
           <input type="text" 
                     class="form-control mb-4 form-group" 
                     ngModel 
-                    name="feedback"
-                    #feedback="ngModel"
-                    placeholder="للمحافطة على هويتك، يمكن لك صنع بريد إلكتروني بإسم مستعار"
-                    required>
+                    name="email_or_phone"
+                    #email_or_phone="ngModel"
+                    placeholder="للمحافطة على هويتك، يمكن لك صنع بريد إلكتروني بإسم مستعار">
       </div>  
       <div class="text-center">
         <button [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
