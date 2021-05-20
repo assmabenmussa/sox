@@ -12,7 +12,7 @@ export class FormComponent implements OnInit {
   toggleReceiveReply: boolean = false;
   submitted: boolean;
   loading: boolean;
-  deps: any = ['قسم الـIT', 'قسم الـcore', 'قسم الـMaintenance', 'قسم الـAccess Network', 'الموارد البشرية', 
+  deps: any = ['IT', 'core', 'Maintenance', ' Access Network', 'الموارد البشرية', 
                'المالية', 'خدمات المشتركين', 'الادارة', 'التسويق', 'المبيعات', 'علم البيانات', 'أفضل عدم الإفصاح'];
   feedback: Feedback;
   constructor(private restService: RestService) { }
