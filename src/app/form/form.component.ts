@@ -18,13 +18,9 @@ export class FormComponent implements OnInit {
   constructor(private restService: RestService) { }
   
   ngOnInit() {
-    console.log("new version of the app deployed");
   }
 
   onSubmit(data){
-    console.log("onSubmit ", data);
-
-
     this.loading = true
     this.restService.postFeedback(data.value)
       .subscribe(res => {
