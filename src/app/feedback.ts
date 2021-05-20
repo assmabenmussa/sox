@@ -1,4 +1,5 @@
 export interface Feedback{
-    feedback: any;
-    dep: any;
+    feedback: string;
+    dep: string;
+    email_or_phone: string
 }
