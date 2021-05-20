@@ -1,75 +1,73 @@
-<div class="container d-flex h-100 w-50">
-  <div  class="w-100 justify-content-center align-self-center mx-auto card glass-morphism-card">
-    <div class="align-self-center card-body pt-0"> 
+
+<div  class="w-100 justify-content-center card glass-morphism-card my-4">
+  <div class="align-self-center card-body pt-0"> 
+    <div class="text-center">
+      <img height="140px" width="150px" src="../../assets/Logo-0٦.png" alt="Connect logo">
+    </div>
+    <h2 class="card-title text-center">إستقبال المقترحات و الشكاوي</h2>
+    
+    <div *ngIf="!successMsg && errorMsg" class="w-50 mx-auto alert alert-danger mt-3 mb-1 text-center">
+      {{ errorMsg }}
+    </div>
+
+    <div *ngIf="!errorMsg && successMsg" class="w-50 mx-auto alert alert-success mt-3 mb-1 text-center">
+      {{ successMsg }}
+    </div>
+
+    <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm">
+      <div class="text-right form-group">
+          <label class="label" for="opinion">رأيك لن يفصح عن هويتك - في حالة امتناعك عن الافصاح عن قسمك، يرجى إختيار "أفضل عدم الإفصاح"*</label>
+          <textarea type="text" 
+                    class="form-control mb-4 form-group" 
+                    ngModel 
+                    name="feedback"
+                    #feedback="ngModel"
+                    rows = "4"
+                    required></textarea>
+      </div>  
+      <div class="form-group text-right">
+        <label>القسم</label>
+        <select class="form-control"
+                name="dep"
+                #dep="ngModel"
+                ngModel
+                required>
+          <option *ngFor="let dep of deps" [ngValue]="dep">{{dep}}</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div>
+          <label for="">إستلام رد</label>
+        </div>
+        <div>
+          <label class="switch" for="checkbox">
+            <input type="checkbox" id="checkbox" (click)="toggleReceiveReply = !toggleReceiveReply;" />
+            <div class="slider round"></div>
+          </label>
+        </div>
+      </div>
+      <div class="text-right form-group" *ngIf="toggleReceiveReply">
+          <label>البريد الإلكتروني أو رقم الهاتف الذي تود إستلام الرد عليه</label>
+          <input type="text" 
+                    class="form-control mb-4 form-group" 
+                    ngModel 
+                    name="feedback"
+                    #feedback="ngModel"
+                    placeholder="للمحافطة على هويتك، يمكن لك صنع بريد إلكتروني بإسم مستعار"
+                    required>
+      </div>  
       <div class="text-center">
-        <img class="text-center" height="140px" width="150px" src="../../assets/Logo-0٦.png" alt="Connect logo">
-      </div>
-      <h2 class="card-title text-center">إستقبال المقترحات و الشكاوي</h2>
-      <p class="card-text text-center">لمساعدتنا على توفير بيئة عمل أفضل و أكثر انتاجية</p>
-      
-      <div *ngIf="!successMsg && errorMsg" class="w-50 mx-auto alert alert-danger mt-3 mb-1 text-center">
-        {{ errorMsg }}
-      </div>
-
-      <div *ngIf="!errorMsg && successMsg" class="w-50 mx-auto alert alert-success mt-3 mb-1 text-center">
-        {{ successMsg }}
-      </div>
-
-      <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm">
-        <div class="text-right form-group">
-            <label class="label" for="opinion">رأيك لن يفصح عن هويتك - في حالة امتناعك عن الافصاح عن قسمك، يرجى إختيار "أفضل عدم الإفصاح"*</label>
-            <textarea type="text" 
-                      class="form-control mb-4 form-group" 
-                      ngModel 
-                      name="feedback"
-                      #feedback="ngModel"
-                      rows = "4"
-                      required></textarea>
-        </div>  
-        <div class="form-group text-right">
-          <label>القسم</label>
-          <select class="form-control"
-                  name="dep"
-                  #dep="ngModel"
-                  ngModel
-                  required>
-            <option *ngFor="let dep of deps" [ngValue]="dep">{{dep}}</option>
-          </select>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div>
-            <label for="">إستلام رد</label>
+        <button [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
+          
+          <div *ngIf="loading" class="text-center">
+            <div class="spinner-border spinner-border-sm text-light h5"></div>
           </div>
-          <div>
-            <label class="switch" for="checkbox">
-              <input type="checkbox" id="checkbox" />
-              <div class="slider round"></div>
-            </label>
-          </div>
-        </div>
-        <div class="text-right form-group">
-            <label>بريد إلكتروني أو رقم هاتف</label>
-            <input type="text" 
-                      class="form-control mb-4 form-group" 
-                      ngModel 
-                      name="feedback"
-                      #feedback="ngModel"
-                      required>
-        </div>  
-        <div class="text-center">
-          <button [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
-            
-            <div *ngIf="loading" class="text-center">
-              <div class="spinner-border spinner-border-sm text-light h5"></div>
-            </div>
-            <ng-container *ngIf="!loading">
-              إرسال
-            </ng-container>
-          </button>
-        </div>
-      </form>
-    </div> 
-  </div>
-</div>  
-   
+          <ng-container *ngIf="!loading">
+            إرسال
+          </ng-container>
+        </button>
+      </div>
+    </form>
+  </div> 
+</div>
    
