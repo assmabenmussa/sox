@@ -8,7 +8,8 @@ import { Feedback } from '../feedback'
 })
 export class FormComponent implements OnInit {
   errorMsg: any = undefined;
-  successMsg: any = undefined
+  successMsg: any = undefined;
+  toggleReceiveReply: boolean = false;
   submitted: boolean;
   loading: boolean;
   deps: any = ['قسم الـIT', 'قسم الـcore', 'قسم الـMaintenance', 'قسم الـAccess Network', 'الموارد البشرية', 
