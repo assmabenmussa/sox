@@ -1,23 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { Feedback } from '../feedback'
+import * as introJs from 'intro.js/intro.js';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  errorMsg: any = undefined;
-  successMsg: any = undefined;
+  
+  @ViewChild('openModal', {static: false}) openModal : ElementRef<HTMLElement>;
+  
+  errorMsg: string = undefined;
+  successMsg: string = undefined;
+
   toggleReceiveReply: boolean = false;
   submitted: boolean;
   loading: boolean;
+
   deps: any = ['IT', 'core', 'Maintenance', ' Access Network', 'الموارد البشرية', 
                'المالية', 'خدمات المشتركين', 'الادارة', 'التسويق', 'المبيعات', 'علم البيانات', 'أفضل عدم الإفصاح'];
   feedback: Feedback;
   constructor(private restService: RestService) { }
   
   ngOnInit() {
+    introJs().start();
+  }
+
+  ngAfterViewInit(){
+    this.clickBtn();
+  }
+
+  clickBtn(){
+    this.openModal.nativeElement.click();
   }
 
   onSubmit(data){
