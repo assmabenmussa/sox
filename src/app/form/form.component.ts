@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { Feedback } from '../feedback'
-import * as introJs from 'intro.js/intro.js';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -24,7 +23,6 @@ export class FormComponent implements OnInit {
   constructor(private restService: RestService) { }
   
   ngOnInit() {
-    introJs().start();
   }
 
   ngAfterViewInit(){
