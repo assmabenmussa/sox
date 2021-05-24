@@ -16,7 +16,7 @@
 
     <form (ngSubmit)="onSubmit(opForm)" #opForm="ngForm">
       <div class="text-right form-group">
-          <label class="label" for="opinion">رأيك لن يفصح عن هويتك - في حالة امتناعك عن الافصاح عن قسمك، يرجى إختيار "أفضل عدم الإفصاح"*</label>
+          <label class="label" for="opinion">*رأيك لن يفصح عن هويتك - في حالة امتناعك عن الافصاح عن قسمك، يرجى إختيار "أفضل عدم الإفصاح"</label>
           <textarea type="text" 
                     class="form-control mb-4 form-group" 
                     ngModel 
@@ -56,7 +56,7 @@
                     placeholder="للمحافطة على هويتك، يمكن لك صنع بريد إلكتروني بإسم مستعار">
       </div>  
       <div class="text-center">
-        <button [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
+        <button type="submit" [disabled]="!opForm.form.valid" class="mx-auto w-25 text-center btn btn-danger">
           
           <div *ngIf="loading" class="text-center">
             <div class="spinner-border spinner-border-sm text-light h5"></div>
@@ -65,8 +65,36 @@
             إرسال
           </ng-container>
         </button>
+        <button hidden type="button" #openModal data-toggle="modal" (click)="clickBtn()" data-target="#popup">click me</button>
       </div>
     </form>
   </div> 
 </div>
-   
+
+<div class="modal fade show" tabindex="-1" role="dialog" id="popup">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <div><h5 class="modal-title">تنويه</h5></div>
+        <div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body text-right">
+        <p>نود أن نؤكد لكم مصداقية عمل هذه الأداة، وأن كل الرسائل المرسلة <b>مجهولة تماماً</b>، وتؤخذ على محمل الجد، سواء تم استلام الشكوى بهوية أو بغير هوية، و عليه نحب أن نوضح بعض النقاط:</p>
+          <ol>
+            <li>أضفنا خاصية <b><u>إختيارية</u></b> تمكّن مُرسل الاقتراح أو الشكوى <b>إستقبال رد</b> على شكواه، يمكنكم وضع بياناتكم الرسمية من بريد إلكتروني أو هاتف شخصي، أو استخدام بريد إلكتروني وهمي في حال لا تودون الكشف عن هوياتكم، فالأمرين متاحين.
+            </li>
+            <li>الشكوى تصل مباشرة للبريد الإلكتروني hr@iontel.ly.</li>
+            <li>في قائمة الأقسام هناك اختيار "لا أريد الإفصاح" يمكنك اختياره في حالة رغبتك عن التحفط عن قسمك.</li>
+          </ol>
+          <p>شكرًا لتعاونكم وصراحتكم.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">حسناً</button>
+      </div>
+    </div>
+  </div>
+</div>   
